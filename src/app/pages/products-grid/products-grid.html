@@ -21,12 +21,14 @@
     <h1 class="text-2xl font-bold text-grey-900 uppercase mb-2">{{ category() }}</h1>
     <p class="text-base text-grey-600 mb-6">{{ store.filteredProducts().length }} products found</p>
     <div class="responsive-grid">
-      @for (product of store.filteredProducts(); track product.id) {
-      <app-product-card [product]="product" >
-        <app-toggle-wishlist-button [product]="product" class="!absolute z-10 top-3 right-3"/>
+      @if (store.filteredProducts().length) {
+      @for (product of store.filteredProducts(); track product.id; let i = $index) {
+      <app-product-card [product]="product" [isFirst]="i === 0">
+        <app-toggle-wishlist-button [product]="product"  class="!absolute z-10 top-3 right-3"/>
       </app-product-card>
 
       }
+    }
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

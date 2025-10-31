@@ -6,8 +6,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: 'Modern Fabric Sofa',
     description: 'Comfortable modern sofa with a minimalist design and soft gray upholstery.',
     price: 799.99,
-    imageUrl:
-      'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=300&q=80',
+    imageUrl: '/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=300&q=80',
     rating: 4.6,
     reviewsCount: 124,
     inStock: true,
@@ -19,7 +18,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Chair with lumbar support and adjustable armrests.',
     price: 199.49,
     imageUrl:
-      'https://media.istockphoto.com/id/1303724260/photo/modern-black-office-chair-in-an-empty-office-against-white-wall-on-gray-carpet.webp?a=1&b=1&s=612x612&w=0&k=20&c=cMhIPytqHDPJnIeyRCO-qw6sWTOPDgQp5uFqdwpj57Y=',
+      '/photo-1688578735427-994ecdea3ea4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RXJnb25vbWljJTIwT2ZmaWNlJTIwQ2hhaXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500',
     rating: 4.8,
     reviewsCount: 315,
     inStock: true,
@@ -31,7 +30,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Wireless headphones with noise cancellation.',
     price: 129.99,
     imageUrl:
-      'https://images.unsplash.com/photo-1612465289702-7c84b5258fde?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8V2lyZWxlc3MlMjBIZWFkcGhvbmVzfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=300',
+      '/photo-1612465289702-7c84b5258fde?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8V2lyZWxlc3MlMjBIZWFkcGhvbmVzfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=300',
     rating: 4.5,
     reviewsCount: 542,
     inStock: true,
@@ -43,7 +42,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Smartwatch with health monitoring and built-in GPS.',
     price: 279.99,
     imageUrl:
-      'https://images.unsplash.com/photo-1760520338230-3074dded8778?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U21hcnQlMjBXYXRjaCUyMFNlcmllcyUyMDd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=300',
+      '/photo-1760520338230-3074dded8778?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U21hcnQlMjBXYXRjaCUyMFNlcmllcyUyMDd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=300',
     rating: 4.7,
     reviewsCount: 780,
     inStock: true,
@@ -55,7 +54,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Handmade ceramic mug with a matte finish.',
     price: 19.99,
     imageUrl:
-      'https://images.unsplash.com/photo-1666445759502-85124c28524e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Q2VyYW1pYyUyMENvZmZlZSUyME11Z3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=300',
+      '/photo-1666445759502-85124c28524e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Q2VyYW1pYyUyMENvZmZlZSUyME11Z3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=300',
     rating: 4.3,
     reviewsCount: 82,
     inStock: true,
@@ -67,7 +66,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Portable blender for smoothies and shakes.',
     price: 49.99,
     imageUrl:
-      'https://plus.unsplash.com/premium_photo-1719060015414-c66eb449b9be?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UG9ydGFibGUlMjBCbGVuZGVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=300',
+      '/photo-1570222094114-d054a817e56b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmxlbmRlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500',
     rating: 4.4,
     reviewsCount: 260,
     inStock: false,
@@ -79,7 +78,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Leather-bound notebook with high-quality paper.',
     price: 24.99,
     imageUrl:
-      'https://images.unsplash.com/photo-1689757875266-66446af145dc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8TGVhdGhlciUyME5vdGVib29rfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=300',
+      '/photo-1689757875266-66446af145dc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8TGVhdGhlciUyME5vdGVib29rfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=300',
     rating: 4.8,
     reviewsCount: 150,
     inStock: true,
@@ -90,7 +89,8 @@ export const MOCK_PRODUCTS: Product[] = [
     name: 'Modern Floor Lamp',
     description: 'Tall Scandinavian-style floor lamp.',
     price: 139.0,
-    imageUrl: 'https://images.unsplash.com/photo-1758380388531-3ce641e4b2d8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TW9kZXJuJTIwRmxvb3IlMjBMYW1wfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=300',
+    imageUrl:
+      '/photo-1758380388531-3ce641e4b2d8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TW9kZXJuJTIwRmxvb3IlMjBMYW1wfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=300',
     rating: 4.4,
     reviewsCount: 97,
     inStock: true,
@@ -102,7 +102,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Compact speaker with deep sound and water resistance.',
     price: 59.99,
     imageUrl:
-      'https://images.unsplash.com/photo-1547052178-7f2c5a20c332?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fEJsdWV0b290aCUyMFNwZWFrZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=300',
+      '/photo-1547052178-7f2c5a20c332?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fEJsdWV0b290aCUyMFNwZWFrZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=300',
     rating: 4.6,
     reviewsCount: 403,
     inStock: true,
@@ -114,7 +114,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Stainless steel knife set with a wooden block stand.',
     price: 79.49,
     imageUrl:
-      'https://media.istockphoto.com/id/1434428084/photo/knives.webp?a=1&b=1&s=612x612&w=0&k=20&c=6O3UfEEOQnseG_uJSMilGV8O8uwQCnFF157b3OEAD08=',
+      '/photo-1560291544-bc203f6f95be?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8U3RhaW5sZXNzJTIwU3RlZWwlMjBLbmlmZSUyMFNldHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500',
     rating: 4.5,
     reviewsCount: 231,
     inStock: true,
@@ -126,7 +126,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Compact speaker with deep sound and water resistance.',
     price: 59.99,
     imageUrl:
-      'https://images.unsplash.com/photo-1730909352933-614f1673ac21?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U21hcnQlMjA0SyUyMFRWfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=300',
+      '/photo-1730909352933-614f1673ac21?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U21hcnQlMjA0SyUyMFRWfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=300',
     rating: 4.6,
     reviewsCount: 403,
     inStock: true,
@@ -138,7 +138,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Compact speaker with deep sound and water resistance.',
     price: 59.99,
     imageUrl:
-      'https://images.unsplash.com/photo-1474376700777-eb547d9bed2f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UHJvZmVzc2lvbmFsJTIwQ2FtZXJhfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=300',
+      '/photo-1474376700777-eb547d9bed2f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UHJvZmVzc2lvbmFsJTIwQ2FtZXJhfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=300',
     rating: 4.6,
     reviewsCount: 403,
     inStock: true,
@@ -149,7 +149,8 @@ export const MOCK_PRODUCTS: Product[] = [
     name: 'Robot Vacuum',
     description: 'Tall Scandinavian-style floor lamp.',
     price: 139.0,
-    imageUrl: 'https://plus.unsplash.com/premium_photo-1729006559482-d289e4385b1e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Um9ib3QlMjBWYWN1dW18ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=300',
+    imageUrl:
+      '/photo-1600322305530-45714a0bc945?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Um9ib3QlMjBWYWN1dW18ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500',
     rating: 4.4,
     reviewsCount: 97,
     inStock: true,
