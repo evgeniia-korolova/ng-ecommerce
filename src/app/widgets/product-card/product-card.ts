@@ -1,10 +1,11 @@
-import { Component,  input, output } from '@angular/core';
+import { Component,  inject,  input, output } from '@angular/core';
 import { Product } from '../../entities/models/product.interface';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 
 
 import { NgOptimizedImage } from '@angular/common'
+import { EcommerceStore } from '../../entities/ecommerce-store/ecommerce-store';
 
 @Component({
   selector: 'app-product-card',
@@ -15,5 +16,6 @@ import { NgOptimizedImage } from '@angular/common'
 export class ProductCard {
   readonly product = input.required<Product>();
   readonly isFirst = input<boolean>(false);
-  addToCartClicked = output<Product>();
+  protected store = inject(EcommerceStore);
+  
 }

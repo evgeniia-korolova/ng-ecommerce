@@ -6,7 +6,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: 'Modern Fabric Sofa',
     description: 'Comfortable modern sofa with a minimalist design and soft gray upholstery.',
     price: 799.99,
-    imageUrl: '/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=300&q=80',
+    imageUrl: '/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=300&q=60',
     rating: 4.6,
     reviewsCount: 124,
     inStock: true,
@@ -18,7 +18,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Chair with lumbar support and adjustable armrests.',
     price: 199.49,
     imageUrl:
-      '/photo-1688578735427-994ecdea3ea4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RXJnb25vbWljJTIwT2ZmaWNlJTIwQ2hhaXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500',
+      '/photo-1688578735427-994ecdea3ea4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RXJnb25vbWljJTIwT2ZmaWNlJTIwQ2hhaXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=300',
     rating: 4.8,
     reviewsCount: 315,
     inStock: true,
@@ -66,7 +66,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Portable blender for smoothies and shakes.',
     price: 49.99,
     imageUrl:
-      '/photo-1570222094114-d054a817e56b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmxlbmRlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500',
+      '/photo-1570222094114-d054a817e56b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmxlbmRlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=300',
     rating: 4.4,
     reviewsCount: 260,
     inStock: false,
@@ -150,7 +150,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Tall Scandinavian-style floor lamp.',
     price: 139.0,
     imageUrl:
-      '/photo-1600322305530-45714a0bc945?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Um9ib3QlMjBWYWN1dW18ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500',
+      '/photo-1600322305530-45714a0bc945?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Um9ib3QlMjBWYWN1dW18ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=300',
     rating: 4.4,
     reviewsCount: 97,
     inStock: true,
