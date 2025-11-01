@@ -14,6 +14,7 @@ import { Product } from '../models/product.interface';
 import { produce } from 'immer';
 import { ToasterService } from '../../shared/services/toaster-service';
 import { CartItem } from '../models/cartItem.type';
+import { filter } from 'rxjs';
 
 export type EcommerceState = {
   products: Product[];
@@ -79,16 +80,45 @@ export const EcommerceStore = signalStore(
       });
 
       patchState(store, { cartItems: updatedCartItems });
-      toaster.success(existingItemIndex !== -1 ? 'Product added again' : 'Product added to the cart');
+      toaster.success(
+        existingItemIndex !== -1 ? 'Product added again' : 'Product added to the cart'
+      );
     },
 
-    setItemQuantity: (params: {productId: string, quantity: number}) => {
-      const index = store.cartItems().findIndex(item => item.product.id === params.productId)
+    setItemQuantity: (params: { productId: string; quantity: number }) => {
+      const index = store.cartItems().findIndex((item) => item.product.id === params.productId);
 
       const updated = produce(store.cartItems(), (draft) => {
-        draft[index].quantity = params.quantity
+        draft[index].quantity = params.quantity;
+      });
+      patchState(store, { cartItems: updated });
+    },
+
+    addAllWishlistToCart: () => {
+      const updatedCartItems = produce(store.cartItems(), (draft) => {
+        store.whishlistItems().forEach((prod) => {
+          if (!draft.find((c) => c.product.id === prod.id)) {
+            draft.push({ product: prod, quantity: 1 });
+          }
+        });
+      });
+      patchState(store, { cartItems: updatedCartItems, whishlistItems: [] });
+    },
+
+    moveToWishlist: (product: Product) => {
+      const updatedCartItems = store.cartItems().filter(prod => prod.product.id !== product.id);
+      const uptadatedWishlistItems = produce(store.whishlistItems(), (draft) => {
+        if(!draft.find(prod => prod.id === product.id)) {
+          draft.push(product)
+        }
       })
-      patchState(store, {cartItems: updated})
+      patchState(store, {cartItems: updatedCartItems, whishlistItems: uptadatedWishlistItems})
+    },
+
+    removeFromCart: (product: Product) => {
+      patchState(store, {
+        cartItems: store.cartItems().filter(c => c.product.id !== product.id)
+      })
     }
   }))
 );
