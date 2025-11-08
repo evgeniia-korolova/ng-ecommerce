@@ -15,12 +15,16 @@ import { produce } from 'immer';
 import { ToasterService } from '../../shared/services/toaster-service';
 import { CartItem } from '../models/cartItem.type';
 import { filter } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { SignInDialog } from '../../features/sign-in-dialog/sign-in-dialog';
+import { SignInParams, User } from '../models/user';
 
 export type EcommerceState = {
   products: Product[];
   category: string;
   whishlistItems: Product[];
   cartItems: CartItem[];
+  user: User | undefined;
 };
 
 export const EcommerceStore = signalStore(
@@ -32,6 +36,7 @@ export const EcommerceStore = signalStore(
     category: 'all',
     whishlistItems: [],
     cartItems: [],
+    user: undefined,
   } as EcommerceState),
   withComputed(({ category, products, whishlistItems, cartItems }) => ({
     filteredProducts: computed(() => {
@@ -41,7 +46,7 @@ export const EcommerceStore = signalStore(
     wishlistCount: computed(() => whishlistItems().length),
     cartCount: computed(() => cartItems().reduce((acc, item) => acc + item.quantity, 0)),
   })),
-  withMethods((store, toaster = inject(ToasterService)) => ({
+  withMethods((store, toaster = inject(ToasterService), dialog = inject(MatDialog)) => ({
     setCategory: signalMethod<string>((category) => {
       patchState(store, { category });
     }),
@@ -119,6 +124,24 @@ export const EcommerceStore = signalStore(
       patchState(store, {
         cartItems: store.cartItems().filter(c => c.product.id !== product.id)
       })
+    },
+
+    proceedToCheckout: () => {
+      dialog.open(SignInDialog), {
+        disapleClode: true
+      }
+    },
+
+    signIn: ({email, password}: SignInParams)=> {
+      patchState(store, {
+        user: {
+          id: '1',
+          name: 'John',
+          email: 'john@test.com',
+          imageUrl: 'https://randomuser.me/api/portraits/men/1.jpg'
+        }
+      })
     }
+
   }))
 );
