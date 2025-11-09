@@ -1,12 +1,13 @@
 import { MatIcon } from '@angular/material/icon';
 import { Component, inject, signal } from '@angular/core';
-import { MatIconButton, MatAnchor, MatButtonModule } from '@angular/material/button';
-import { MAT_DIALOG_DATA, MatDialogClose, MatDialogRef } from '@angular/material/dialog';
-import { FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatIconButton, MatButtonModule } from '@angular/material/button';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogClose, MatDialogRef } from '@angular/material/dialog';
+import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule, MatPrefix, MatSuffix } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { EcommerceStore } from '../../entities/ecommerce-store/ecommerce-store';
 import { SignInParams } from '../../entities/models/user';
+import { SignUpDialog } from '../sign-up-dialog/sign-up-dialog';
 
 @Component({
   selector: 'app-sign-in-dialog',
@@ -15,7 +16,7 @@ import { SignInParams } from '../../entities/models/user';
     MatIcon,
     MatDialogClose,
     ReactiveFormsModule,
-    FormsModule,
+
     MatFormFieldModule,
     MatSuffix,
     MatPrefix,
@@ -31,6 +32,7 @@ export class SignInDialog {
 
   data = inject<{ checkout: boolean }>(MAT_DIALOG_DATA);
   dialogRef = inject(MatDialogRef);
+  matDialog = inject(MatDialog);
 
   protected signInForm = this.fb.group({
     email: ['john@test.com', Validators.required],
@@ -48,11 +50,18 @@ export class SignInDialog {
     this.store.signIn({
       email,
       password,
-      checkout: this.data.checkout,
+      checkout: this.data?.checkout,
       dialogId: this.dialogRef.id,
     } as SignInParams);
-    console.log(this.data);
-    console.log('click');
-    
+  }
+
+  openSignUpDialog() {
+    this.dialogRef.close();
+    this.matDialog.open(SignUpDialog, {
+      disableClose: true,
+      data: {
+        checkout: this.data?.checkout,
+      },
+    });
   }
 }
