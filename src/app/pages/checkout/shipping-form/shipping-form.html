@@ -1,0 +1,36 @@
+<div appViewPanel>
+    <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+        <mat-icon>local_shipping</mat-icon>
+        Shipping Information
+    </h2>
+
+    <form class="grid grid-cols-1 lg:grid-cols-2 gap-4" [formGroup]="shippingForm" >
+        <mat-form-field >
+          <input matInput formControlName="firstName" placeholder="First Name" type="text" />          
+        </mat-form-field>
+
+        <mat-form-field >
+          <input matInput formControlName="lastName" placeholder="Last Name" type="text" />
+          
+        </mat-form-field>
+
+        <mat-form-field class="col-span-2">
+          <textarea matInput formControlName="address" placeholder="Enter your address" type="text"></textarea>
+          
+        </mat-form-field>
+
+        <mat-form-field >
+          <input matInput formControlName="city" placeholder="Enter your city" type="text" />          
+        </mat-form-field>
+
+        <mat-form-field >
+          <input matInput formControlName="state" placeholder="Enter your State" type="text" />          
+        </mat-form-field>
+
+        <mat-form-field class="col-span-2">
+          <input matInput formControlName="zip" placeholder="Enter your Zip" type="text" />          
+        </mat-form-field>    
+        
+      </form>
+    
+</div>

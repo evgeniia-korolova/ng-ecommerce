@@ -19,6 +19,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { SignInDialog } from '../../features/sign-in-dialog/sign-in-dialog';
 import { SignInParams, SignUpParams, User } from '../models/user';
 import { Router } from '@angular/router';
+import { Order } from '../models/order.type';
 
 export type EcommerceState = {
   products: Product[];
@@ -26,6 +27,7 @@ export type EcommerceState = {
   whishlistItems: Product[];
   cartItems: CartItem[];
   user: User | undefined;
+  loading: boolean;
 };
 
 export const EcommerceStore = signalStore(
@@ -38,6 +40,7 @@ export const EcommerceStore = signalStore(
     whishlistItems: [],
     cartItems: [],
     user: undefined,
+    loading: false,
   } as EcommerceState),
   withComputed(({ category, products, whishlistItems, cartItems }) => ({
     filteredProducts: computed(() => {
@@ -134,16 +137,16 @@ export const EcommerceStore = signalStore(
       },
 
       proceedToCheckout: () => {
-        if(!store.user()) {
+        if (!store.user()) {
           matDialog.open(SignInDialog, {
             disableClose: true,
-            data: { 
-              checkout: true 
+            data: {
+              checkout: true,
             },
           });
           return;
         }
-             router.navigate(['/checkout'])   
+        router.navigate(['/checkout']);
       },
 
       signIn: ({ email, password, checkout, dialogId }: SignInParams) => {
@@ -161,8 +164,8 @@ export const EcommerceStore = signalStore(
         if (checkout) {
           router.navigate(['/checkout']);
         }
-
       },
+
       signUp: ({ name, email, password, checkout, dialogId }: SignUpParams) => {
         patchState(store, {
           user: {
@@ -181,8 +184,38 @@ export const EcommerceStore = signalStore(
       },
 
       signOut: () => {
-        patchState(store, {user: undefined})
-      }
+        patchState(store, { user: undefined });
+      },
+
+      placeOrder: async () => {
+        patchState(store, {
+          loading: true,
+        });
+
+        const user = store.user();
+        if (!user) {
+          toaster.error('Please login before placing order');
+          return;
+        }
+
+        const order: Order = {
+          id: crypto.randomUUID(),
+          userId: user.id,
+          total: Math.round(store
+            .cartItems()
+            .reduce((acc, item) => acc + item.quantity * item.product.price, 0)),
+          items: store.cartItems(),
+          paymentStatus: 'success',
+        };
+
+        await new Promise((resolve) => setTimeout(resolve, 1000))
+
+        patchState(store, {
+          loading: false,
+          cartItems: [],          
+        })
+        router.navigate(['order-success'])
+      },
     })
   )
 );
