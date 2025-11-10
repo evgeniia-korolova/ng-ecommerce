@@ -14,12 +14,12 @@ import { Product } from '../models/product.interface';
 import { produce } from 'immer';
 import { ToasterService } from '../../shared/services/toaster-service';
 import { CartItem } from '../models/cartItem.type';
-import { filter } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { SignInDialog } from '../../features/sign-in-dialog/sign-in-dialog';
 import { SignInParams, SignUpParams, User } from '../models/user';
 import { Router } from '@angular/router';
 import { Order } from '../models/order.type';
+import {withStorageSync} from '@angular-architects/ngrx-toolkit';
 
 export type EcommerceState = {
   products: Product[];
@@ -42,6 +42,7 @@ export const EcommerceStore = signalStore(
     user: undefined,
     loading: false,
   } as EcommerceState),
+  withStorageSync({key: 'modern-store', select: ({whishlistItems, cartItems, user}) => ({whishlistItems, cartItems, user})}),
   withComputed(({ category, products, whishlistItems, cartItems }) => ({
     filteredProducts: computed(() => {
       if (category() === 'all') return products();
@@ -195,6 +196,7 @@ export const EcommerceStore = signalStore(
         const user = store.user();
         if (!user) {
           toaster.error('Please login before placing order');
+          patchState(store, {loading: false})
           return;
         }
 
