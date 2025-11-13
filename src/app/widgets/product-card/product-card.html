@@ -1,5 +1,5 @@
 <div
-  class="relative bg-white cursor-pointer rounded-xl shadow-lg overflow-hidden flex flex-col h-full pt-4"
+  class="relative bg-white cursor-pointer rounded-xl shadow-lg overflow-hidden flex flex-col h-full transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-xl"
 >
 <div class="relative w-[300px] h-[300px]">
 
@@ -11,6 +11,7 @@
     class="w-full h-[300px] object-cover rounded-t-xl"    
     [priority]="isFirst()"
     [routerLink]="['/product', product().id]"
+    [style.view-transition-name]="'product-image-' + product().id"
   />
 </div>
   <ng-content />
@@ -22,16 +23,16 @@
     <div class="text-sm font-medium mb-4">
       {{ product().inStock ? 'In Stock' : 'Out of Stock' }}
     </div>
-    <div class="flex items-center justify-between mt-auto">
-      <span class="text-2xl font-bold text-gray-900"> ${{ product().price }} </span>
-      <button
-        matButton="filled"
-        class="flex items-center gap-2"
-        (click)="store.addToCart(product())"
-      >
-        <mat-icon>shopping_cart</mat-icon>
-        Add to Cart
-      </button>
-    </div>
+  </div>
+  <div class="flex items-center justify-between mt-auto pb-4 px-2">
+    <span class="text-2xl font-bold text-gray-900"> ${{ product().price }} </span>
+    <button
+      matButton="filled"
+      class="flex items-center gap-2"
+      (click)="store.addToCart(product())"
+    >
+      <mat-icon>shopping_cart</mat-icon>
+      Add to Cart
+    </button>
   </div>
 </div>
