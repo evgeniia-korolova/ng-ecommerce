@@ -24,7 +24,7 @@
       @if (store.filteredProducts().length) {
       @for (product of store.filteredProducts(); track product.id; let i = $index) {
       <app-product-card [product]="product" [isFirst]="i === 0">
-        <app-toggle-wishlist-button [product]="product"  class="!absolute z-10 top-3 right-3"/>
+        <app-toggle-wishlist-button [product]="product"  class="!absolute z-10 top-6 right-3 w-10 h-10 rounded !bg-white border-0 shadow-md flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg"/>
       </app-product-card>
 
       }

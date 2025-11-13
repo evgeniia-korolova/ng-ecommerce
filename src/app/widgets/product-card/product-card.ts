@@ -6,10 +6,11 @@ import { MatIcon } from '@angular/material/icon';
 
 import { NgOptimizedImage } from '@angular/common'
 import { EcommerceStore } from '../../entities/ecommerce-store/ecommerce-store';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
-  imports: [MatIcon, MatButton, NgOptimizedImage,],
+  imports: [MatIcon, MatButton, NgOptimizedImage, RouterLink],
   templateUrl: './product-card.html',
   styleUrl: './product-card.scss',
 })
