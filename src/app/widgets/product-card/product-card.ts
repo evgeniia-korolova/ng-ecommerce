@@ -17,6 +17,5 @@ import { RouterLink } from '@angular/router';
 export class ProductCard {
   readonly product = input.required<Product>();
   readonly isFirst = input<boolean>(false);
-  protected store = inject(EcommerceStore);
-  
+  protected store = inject(EcommerceStore);  
 }

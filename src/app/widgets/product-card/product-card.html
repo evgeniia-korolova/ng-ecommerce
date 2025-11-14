@@ -1,19 +1,28 @@
 <div
   class="relative bg-white cursor-pointer rounded-xl shadow-lg overflow-hidden flex flex-col h-full transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-xl"
 >
-<div class="relative w-[300px] h-[300px]">
-
-
-  <img
-    [ngSrc]="product().imageUrl"
-    [alt]="product().name"
-    fill
-    class="w-full h-[300px] object-cover rounded-t-xl"    
-    [priority]="isFirst()"
-    [routerLink]="['/product', product().id]"
-    [style.view-transition-name]="'product-image-' + product().id"
-  />
-</div>
+  <div class="relative w-[300px] h-[300px]">
+    @if (isFirst()) {
+    <img
+      [ngSrc]="product().imageUrl"
+      [alt]="product().name"
+      fill
+      class="w-full h-[300px] object-cover rounded-t-xl"
+      [priority]="isFirst()"
+      [routerLink]="['/product', product().id]"
+      [style.view-transition-name]="'product-image-' + product().id"
+    />
+    } @else {
+    <img
+      [ngSrc]="product().imageUrl"
+      [alt]="product().name"
+      fill
+      class="w-full h-[300px] object-cover rounded-t-xl"
+      [routerLink]="['/product', product().id]"
+      [style.view-transition-name]="'product-image-' + product().id"
+    />
+    }
+  </div>
   <ng-content />
 
   <div class="p-5 flex flex-col flex-1" [routerLink]="['/product', product().id]">
@@ -26,11 +35,7 @@
   </div>
   <div class="flex items-center justify-between mt-auto pb-4 px-2">
     <span class="text-2xl font-bold text-gray-900"> ${{ product().price }} </span>
-    <button
-      matButton="filled"
-      class="flex items-center gap-2"
-      (click)="store.addToCart(product())"
-    >
+    <button matButton="filled" class="flex items-center gap-2" (click)="store.addToCart(product())">
       <mat-icon>shopping_cart</mat-icon>
       Add to Cart
     </button>
