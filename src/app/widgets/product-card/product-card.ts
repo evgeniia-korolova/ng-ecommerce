@@ -7,10 +7,11 @@ import { MatIcon } from '@angular/material/icon';
 import { NgOptimizedImage } from '@angular/common'
 import { EcommerceStore } from '../../entities/ecommerce-store/ecommerce-store';
 import { RouterLink } from '@angular/router';
+import { StarRating } from "../../features/star-rating/star-rating";
 
 @Component({
   selector: 'app-product-card',
-  imports: [MatIcon, MatButton, NgOptimizedImage, RouterLink],
+  imports: [MatIcon, MatButton, NgOptimizedImage, RouterLink, StarRating],
   templateUrl: './product-card.html',
   styleUrl: './product-card.scss',
 })

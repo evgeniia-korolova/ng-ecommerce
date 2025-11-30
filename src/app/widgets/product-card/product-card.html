@@ -29,6 +29,9 @@
     <h3 class="text-lg font-semibold text-gray-900 mb-2 leading-tight">{{ product().name }}</h3>
     <p class="text-sm text-gray-600 mb-4 flex-1 leading-relaxed">{{ product().description }}</p>
     <!-- add rating component -->
+     <app-star-rating class="mb-3" [rating]="product().rating">
+      ({{product().reviewsCount}})
+     </app-star-rating>
     <div class="text-sm font-medium mb-4">
       {{ product().inStock ? 'In Stock' : 'Out of Stock' }}
     </div>

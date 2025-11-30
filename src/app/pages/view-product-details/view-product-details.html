@@ -5,7 +5,7 @@
   <div class="flex gap-8 mb-8">
     <img
       [src]="imageBaseUrl + product.imageUrl"
-      class="w-[500px] h-[550px] object-cover rounded-lg"
+      class="w-[180px] h-[200px] sm:w-[400px] sm:h-[440px] md:w-[500px] md:h-[550px] object-cover rounded-lg"
       alt="product.name"
       [style.view-transition-name]="'product-image-' + product.id "
     />
@@ -13,5 +13,7 @@
       <app-product-info [product]="product" />
     </div>
   </div>
+
+  <app-view-reviews [product]="product" />
   }
 </div>
