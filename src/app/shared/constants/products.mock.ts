@@ -14,7 +14,7 @@ export const MOCK_PRODUCTS: Product[] = [
     reviews: [
       {
         id: 'r1',
-        productid: 'p100',
+        productId: 'p100',
         userName: 'Alice Johnson',
         userImageUrl: 'https://randomuser.me/api/portraits/women/20.jpg',
         rating: 5,
@@ -24,7 +24,7 @@ export const MOCK_PRODUCTS: Product[] = [
       },
       {
         id: 'r15',
-        productid: 'p107',
+        productId: 'p107',
         userName: 'Olivia Garcia',
         userImageUrl: 'https://randomuser.me/api/portraits/women/55.jpg',
         rating: 2,
@@ -34,7 +34,7 @@ export const MOCK_PRODUCTS: Product[] = [
       },
       {
         id: 'r21',
-        productid: 'p107',
+        productId: 'p107',
         userName: 'Paul Jordan',
         userImageUrl: 'https://randomuser.me/api/portraits/men/45.jpg',
         rating: 2,
@@ -58,7 +58,7 @@ export const MOCK_PRODUCTS: Product[] = [
     reviews: [
       {
         id: 'r2',
-        productid: 'p100',
+        productId: 'p100',
         userName: 'Bob Smith',
         userImageUrl: 'https://randomuser.me/api/portraits/men/45.jpg',
         rating: 4,
@@ -82,7 +82,7 @@ export const MOCK_PRODUCTS: Product[] = [
     reviews: [
       {
         id: 'r3',
-        productid: 'p101',
+        productId: 'p101',
         userName: 'Carla Mendes',
         userImageUrl: 'https://randomuser.me/api/portraits/women/15.jpg',
         rating: 3,
@@ -93,7 +93,7 @@ export const MOCK_PRODUCTS: Product[] = [
 
       {
         id: 'r16',
-        productid: 'p107',
+        productId: 'p107',
         userName: 'Paul Anderson',
         userImageUrl: 'https://randomuser.me/api/portraits/men/2.jpg',
         rating: 4,
@@ -117,7 +117,7 @@ export const MOCK_PRODUCTS: Product[] = [
     reviews: [
       {
         id: 'r4',
-        productid: 'p101',
+        productId: 'p101',
         userName: 'Daniel Wu',
         userImageUrl: 'https://randomuser.me/api/portraits/men/5.jpg',
         rating: 5,
@@ -141,7 +141,7 @@ export const MOCK_PRODUCTS: Product[] = [
     reviews: [
       {
         id: 'r5',
-        productid: 'p102',
+        productId: 'p102',
         userName: 'Emma Brown',
         userImageUrl: 'https://randomuser.me/api/portraits/women/12.jpg',
         rating: 2,
@@ -151,7 +151,7 @@ export const MOCK_PRODUCTS: Product[] = [
       },
       {
         id: 'r17',
-        productid: 'p108',
+        productId: 'p108',
         userName: 'Quinn Taylor',
         userImageUrl: 'https://randomuser.me/api/portraits/women/22.jpg',
         rating: 5,
@@ -175,7 +175,7 @@ export const MOCK_PRODUCTS: Product[] = [
     reviews: [
       {
         id: 'r6',
-        productid: 'p102',
+        productId: 'p102',
         userName: 'Frank Miller',
         userImageUrl: 'https://randomuser.me/api/portraits/men/4.jpg',
         rating: 4,
@@ -199,7 +199,7 @@ export const MOCK_PRODUCTS: Product[] = [
     reviews: [
       {
         id: 'r7',
-        productid: 'p103',
+        productId: 'p103',
         userName: 'Grace Lee',
         userImageUrl: 'https://randomuser.me/api/portraits/women/18.jpg',
         rating: 5,
@@ -209,7 +209,7 @@ export const MOCK_PRODUCTS: Product[] = [
       },
       {
         id: 'r18',
-        productid: 'p108',
+        productId: 'p108',
         userName: 'Rachel Evans',
         userImageUrl: 'https://randomuser.me/api/portraits/women/70.jpg',
         rating: 3,
@@ -233,7 +233,7 @@ export const MOCK_PRODUCTS: Product[] = [
     reviews: [
       {
         id: 'r8',
-        productid: 'p103',
+        productId: 'p103',
         userName: 'Henry Adams',
         userImageUrl: 'https://randomuser.me/api/portraits/men/40.jpg',
         rating: 3,
@@ -244,7 +244,7 @@ export const MOCK_PRODUCTS: Product[] = [
 
       {
         id: 'r19',
-        productid: 'p109',
+        productId: 'p109',
         userName: 'Samuel Green',
         userImageUrl: 'https://randomuser.me/api/portraits/men/46.jpg',
         rating: 4,
@@ -268,7 +268,7 @@ export const MOCK_PRODUCTS: Product[] = [
     reviews: [
       {
         id: 'r9',
-        productid: 'p104',
+        productId: 'p104',
         userName: 'Isabella Rossi',
         userImageUrl: 'https://randomuser.me/api/portraits/women/31.jpg',
         rating: 4,
@@ -292,7 +292,7 @@ export const MOCK_PRODUCTS: Product[] = [
     reviews: [
       {
         id: 'r10',
-        productid: 'p104',
+        productId: 'p104',
         userName: 'Jack Wilson',
         userImageUrl: 'https://randomuser.me/api/portraits/men/48.jpg',
         rating: 1,
@@ -303,7 +303,7 @@ export const MOCK_PRODUCTS: Product[] = [
 
       {
         id: 'r20',
-        productid: 'p109',
+        productId: 'p109',
         userName: 'Tina White',
         userImageUrl: 'https://randomuser.me/api/portraits/women/29.jpg',
         rating: 5,
@@ -327,7 +327,7 @@ export const MOCK_PRODUCTS: Product[] = [
     reviews: [
       {
         id: 'r11',
-        productid: 'p105',
+        productId: 'p105',
         userName: 'Karen Davis',
         userImageUrl: 'https://randomuser.me/api/portraits/women/51.jpg',
         rating: 5,
@@ -351,7 +351,7 @@ export const MOCK_PRODUCTS: Product[] = [
     reviews: [
       {
         id: 'r12',
-        productid: 'p105',
+        productId: 'p105',
         userName: 'Leo Martinez',
         userImageUrl: 'https://example.com/users/leo.jpg',
         rating: 4,
@@ -375,7 +375,7 @@ export const MOCK_PRODUCTS: Product[] = [
     reviews: [
       {
         id: 'r13',
-        productid: 'p106',
+        productId: 'p106',
         userName: 'Mia Chen',
         userImageUrl: 'https://randomuser.me/api/portraits/women/11.jpg',
         rating: 3,
@@ -385,7 +385,7 @@ export const MOCK_PRODUCTS: Product[] = [
       },
       {
         id: 'r14',
-        productid: 'p106',
+        productId: 'p106',
         userName: 'Noah Thompson',
         userImageUrl: 'https://randomuser.me/api/portraits/women/35.jpg',
         rating: 5,

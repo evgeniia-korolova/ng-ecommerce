@@ -19,7 +19,8 @@ import { SignInDialog } from '../../features/sign-in-dialog/sign-in-dialog';
 import { SignInParams, SignUpParams, User } from '../models/user';
 import { Router } from '@angular/router';
 import { Order } from '../models/order.type';
-import {withStorageSync} from '@angular-architects/ngrx-toolkit';
+import { withStorageSync } from '@angular-architects/ngrx-toolkit';
+import { AddReviewParams, UserReview } from '../models/user-reviews.type';
 
 export type EcommerceState = {
   products: Product[];
@@ -28,7 +29,8 @@ export type EcommerceState = {
   cartItems: CartItem[];
   user: User | undefined;
   loading: boolean;
-  selectedProductId: string | undefined
+  selectedProductId: string | undefined;
+  writeReview: boolean;
 };
 
 export const EcommerceStore = signalStore(
@@ -42,9 +44,13 @@ export const EcommerceStore = signalStore(
     cartItems: [],
     user: undefined,
     loading: false,
-    selectedProductId: undefined
+    selectedProductId: undefined,
+    writeReview: false,
   } as EcommerceState),
-  withStorageSync({key: 'modern-store', select: ({whishlistItems, cartItems, user}) => ({whishlistItems, cartItems, user})}),
+  withStorageSync({
+    key: 'modern-store',
+    select: ({ whishlistItems, cartItems, user }) => ({ whishlistItems, cartItems, user }),
+  }),
   withComputed(({ category, products, whishlistItems, cartItems, selectedProductId }) => ({
     filteredProducts: computed(() => {
       if (category() === 'all') return products();
@@ -66,7 +72,7 @@ export const EcommerceStore = signalStore(
       }),
 
       setProductId: signalMethod<string>((productId: string) => {
-        patchState(store, {selectedProductId: productId})
+        patchState(store, { selectedProductId: productId });
       }),
 
       addToWishlist: (product: Product) => {
@@ -204,27 +210,72 @@ export const EcommerceStore = signalStore(
         const user = store.user();
         if (!user) {
           toaster.error('Please login before placing order');
-          patchState(store, {loading: false})
+          patchState(store, { loading: false });
           return;
         }
 
         const order: Order = {
           id: crypto.randomUUID(),
           userId: user.id,
-          total: Math.round(store
-            .cartItems()
-            .reduce((acc, item) => acc + item.quantity * item.product.price, 0)),
+          total: Math.round(
+            store.cartItems().reduce((acc, item) => acc + item.quantity * item.product.price, 0)
+          ),
           items: store.cartItems(),
           paymentStatus: 'success',
         };
 
-        await new Promise((resolve) => setTimeout(resolve, 1000))
+        await new Promise((resolve) => setTimeout(resolve, 1000));
 
         patchState(store, {
           loading: false,
-          cartItems: [],          
-        })
-        router.navigate(['order-success'])
+          cartItems: [],
+        });
+        router.navigate(['order-success']);
+      },
+
+      showWriteReview: () => {
+        patchState(store, { writeReview: true });
+      },
+
+      hideWriteReview: () => {
+        patchState(store, { writeReview: false });
+      },
+
+      addReview: async ({ title, comment, rating }: AddReviewParams) => {
+        patchState(store, { loading: true });
+        const product = store.products().find((prod) => prod.id === store.selectedProductId());
+        if (!product) {
+          patchState(store, { loading: false });
+          return;
+        }
+
+        const review: UserReview = {
+          id: crypto.randomUUID(),
+          title,
+          comment,
+          rating,
+          productId: product.id,
+          userName: store.user()?.name || '',
+          userImageUrl: store.user()?.imageUrl || '',
+          reviewDate: new Date(),
+        };
+
+        const updatedProducts = produce(store.products(), (draft) => {
+          const index = draft.findIndex((prod) => prod.id === product.id);
+          draft[index].reviews.push(review);
+          draft[index].rating = Math.round(
+            ((draft[index].reviews.reduce((acc, rait) => acc + rait.rating, 0) /
+              draft[index].reviews.length) *
+              10) /
+              10
+          );
+
+          draft[index].reviewsCount = draft[index].reviews.length;
+        });
+
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        patchState(store, {loading: false, products: updatedProducts, writeReview: false})
       },
     })
   )
