@@ -10,8 +10,10 @@
     "build:deploy": "ng build --output-path=dist --base-href='/ng-ecommerce/'",
     "build:production": "ng build --configuration=production --base-href=/ng-ecommerce",
     "deploy": "ngh --dir=dist/browser",
-    "serve:ssr:e-commerce": "node dist/ng-ecommerce/server/server.mjs",
-    "build:ssr": "ng build && ng run ngx-fullstack-ecommerce:server"
+    "serve:ssr:ng-ecommerce": "node dist/ng-ecommerce/server/server.mjs",
+    "build:serv": "ng build --output-mode=server"
+
+    
   },
   "prettier": {
     "printWidth": 100,

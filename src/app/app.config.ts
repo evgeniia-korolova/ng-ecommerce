@@ -10,6 +10,7 @@ import { provideHotToastConfig } from '@ngxpert/hot-toast';
 import { provideCloudflareLoader, provideImgixLoader } from '@angular/common';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,6 +19,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes, withComponentInputBinding(), withViewTransitions()),
     provideHotToastConfig({style: {marginTop: '100px'}, stacking: 'depth', duration: 1000}),
     provideImgixLoader('https://images.unsplash.com'),
+    provideHttpClient(withFetch()),
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
       useValue: {

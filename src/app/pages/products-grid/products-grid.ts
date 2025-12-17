@@ -1,4 +1,4 @@
-import { Component, inject, input, signal } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
 import { ProductCard } from '../../widgets/product-card/product-card';
 import { MatSidenavContainer, MatSidenavContent, MatSidenav } from '@angular/material/sidenav';
 import { MatNavList, MatListItem } from '@angular/material/list';
@@ -27,6 +27,8 @@ import { ToggleWishlistButton } from '../../shared/ui/toggle-wishlist-button/tog
 export class ProductsGrid {
   protected store = inject(EcommerceStore);
   protected readonly category = input<string>('all');
+  protected readonly search = input<string>('');
+
   protected readonly categories = signal<string[]>([
     'all',
     'electronics',
@@ -35,7 +37,17 @@ export class ProductsGrid {
     'kitchen',
   ]);
 
+  protected readonly productsQueryParams = computed(() => ({
+    category: this.category() ?? 'all',
+    searchTerm: this.search() ?? '',
+  }));
+
+
+
   constructor() {
-    this.store.setCategory(this.category);
+    // this.store.setCategory(this.category);
+    this.store.setParams(this.productsQueryParams);
+    this.store.setProductsListSeoTags(this.category)
+
   }
 }

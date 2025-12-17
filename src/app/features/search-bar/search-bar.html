@@ -1,0 +1,12 @@
+<div
+  class="w-150 flex items-center bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm focus-within:ring-2 focus-within:ring-blue-200"
+>
+  <mat-icon>search</mat-icon>
+
+  <input
+    type="text"
+    placeholder="Search products..."
+    class="flex-1 bg-transparent outline-none text-gray-700 text-sm placeholder-gray-400"
+    (input)="onInput($event)"
+  />
+</div>

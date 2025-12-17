@@ -15,7 +15,8 @@ export default class ViewProductDetails {
   store = inject(EcommerceStore)
 
   constructor() {
-    this.store.setProductId(this.productId)
+    this.store.setProductId(this.productId);
+    this.store.setProductSeoTags(this.store.selectedProduct)
   }
 
   backRoute = computed(() => `/products/${this.store.category()}`)
