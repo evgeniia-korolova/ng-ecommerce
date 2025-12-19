@@ -1,12 +1,64 @@
+@if(responsive.largeWidth()){
 <div
-  class="w-150 flex items-center bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm focus-within:ring-2 focus-within:ring-blue-200"
+  class="flex gap-2 items-center bg-white border border-gray-200 rounded-lg px-4 shadow-sm focus-within:ring-2 focus-within:ring-blue-200"
 >
-  <mat-icon>search</mat-icon>
+  <button matIconButton>
+    <mat-icon>search</mat-icon>
+  </button>
 
   <input
     type="text"
+    name="search"
     placeholder="Search products..."
+    autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false"
+      
     class="flex-1 bg-transparent outline-none text-gray-700 text-sm placeholder-gray-400"
+    [value]="store.searchTerm()"
     (input)="onInput($event)"
   />
+
+  <button mat-icon-button (click)="clear($event)">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+} @else if (!responsive.largeWidth() && !searchOpen()){
+<div class="flex justify-center">
+  <button matIconButton (click)="openOverlay()">
+    <mat-icon>search</mat-icon>
+  </button>
+</div>
+}
+
+<!-- overlay -->
+
+<div
+  class="fixed top-0 left-0 bg-white z-40 w-full h-[56px] flex items-center justify-center"
+  [class.hidden]="!searchOpen() || responsive.largeWidth()"
+  [attr.aria-hidden]="!searchOpen() || responsive.largeWidth() ? 'true' : 'false'"
+  (click)="closeOverlay()"
+>
+  <div class="fixed top-0 left-0 w-full z-50 flex items-center gap-4 px-8 py-4" (click)="$event.stopPropagation()">
+    <mat-icon>search</mat-icon>
+
+    <input
+      type="text"
+      name="search"
+      placeholder="Search products..."
+      (input)="onInput($event)"
+      [value]="store.searchTerm()"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false"
+      
+
+    />
+
+    <button mat-icon-button (click)="closeOverlay()" class="ml-auto">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
 </div>

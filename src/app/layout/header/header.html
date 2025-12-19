@@ -1,7 +1,13 @@
 <mat-toolbar class="w-full elevated py-2">
-  <div class="max-w-[1200px] mx-auto w-full flex items-center justify-between">
-    <span routerLink="./">Store NG-20</span>
-    <app-search-bar/>
-    <app-header-actions />
-</div>
+  <div class="max-w-[1200px] mx-auto w-full flex items-center gap-4">
+    <div class="flex gap-4 items-center">
+      <button matIconButton>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span routerLink="./">Store NG-20</span>
+    </div>
+    <app-search-bar class="flex-1" />
+
+    <app-header-actions class="ml-auto"/>
+  </div>
 </mat-toolbar>
