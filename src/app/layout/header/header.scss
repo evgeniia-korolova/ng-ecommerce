@@ -1,0 +1,12 @@
+@media (max-width: 420px) {
+    .mat-toolbar-single-row {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  
+    @media (max-width: 420px) {
+      .hide-title {
+        display: none;
+      }
+    }
+  }
