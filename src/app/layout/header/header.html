@@ -1,5 +1,5 @@
 <mat-toolbar class="w-full elevated py-2">
-  <div class="max-w-[1200px] mx-auto w-full flex items-center gap-1 lg:gap-4">
+  <div class="max-w-[1200px] mx-auto w-full flex flex-row justify-between lg:items-center gap-1 md:gap-2 lg:gap-4" >
     <div class="flex gap-1 items-center lg:gap-4">
       <button
         matIconButton
@@ -15,6 +15,7 @@
         <span class="inline sm:hidden text-sm hide-title">NG-20</span>
       </span>
     </div>
-    <app-header-actions class="ml-auto" />
+    <app-search-bar />
+    <app-header-actions class="lg:ml-auto" />
   </div>
 </mat-toolbar>

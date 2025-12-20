@@ -21,6 +21,8 @@ import { Router } from '@angular/router';
 import { Order } from '../models/order.type';
 import { withStorageSync } from '@angular-architects/ngrx-toolkit';
 import { AddReviewParams, UserReview } from '../models/user-reviews.type';
+import { rxMethod } from '@ngrx/signals/rxjs-interop';
+import { pipe, tap } from 'rxjs';
 
 export type EcommerceState = {
   products: Product[];
@@ -31,6 +33,7 @@ export type EcommerceState = {
   loading: boolean;
   selectedProductId: string | undefined;
   writeReview: boolean;
+  searchTerm: string;
 };
 
 export const EcommerceStore = signalStore(
@@ -46,15 +49,30 @@ export const EcommerceStore = signalStore(
     loading: false,
     selectedProductId: undefined,
     writeReview: false,
+    searchTerm: '',
   } as EcommerceState),
   withStorageSync({
     key: 'modern-store',
     select: ({ whishlistItems, cartItems, user }) => ({ whishlistItems, cartItems, user }),
   }),
-  withComputed(({ category, products, whishlistItems, cartItems, selectedProductId }) => ({
+  withComputed(({ category, products, whishlistItems, cartItems, selectedProductId, searchTerm  }) => ({
     filteredProducts: computed(() => {
-      if (category() === 'all') return products();
-      return products().filter((prod) => prod.category === category()?.toLowerCase());
+      // if (category() === 'all') return products();
+      // return products().filter((prod) => prod.category === category()?.toLowerCase());
+      const currentCategory = category()?.toLowerCase() ?? 'all';
+      const term = searchTerm()?.toLowerCase().trim() ?? '';
+    
+      return products().filter((prod) => {
+        const matchesCategory =
+          currentCategory === 'all' || prod.category.toLowerCase() === currentCategory;
+    
+        const matchesSearch =
+          term === '' ||
+          prod.name.toLowerCase().includes(term) ||
+          prod.description?.toLowerCase().includes(term);
+    
+        return matchesCategory && matchesSearch;
+      });
     }),
     wishlistCount: computed(() => whishlistItems().length),
     cartCount: computed(() => cartItems().reduce((acc, item) => acc + item.quantity, 0)),
@@ -70,6 +88,14 @@ export const EcommerceStore = signalStore(
       setCategory: signalMethod<string>((category) => {
         patchState(store, { category });
       }),
+
+      setParams: rxMethod<{ category: string; searchTerm: string }>(
+        pipe(
+          tap(({ category, searchTerm }) => {
+            patchState(store, { category, searchTerm });
+          })
+        )
+      ),
 
       setProductId: signalMethod<string>((productId: string) => {
         patchState(store, { selectedProductId: productId });
