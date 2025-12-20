@@ -7,6 +7,8 @@ import { TitleCasePipe } from '@angular/common';
 import { EcommerceStore } from '../../entities/ecommerce-store/ecommerce-store';
 
 import { ToggleWishlistButton } from '../../shared/ui/toggle-wishlist-button/toggle-wishlist-button';
+import { SidebarService } from '../../layout/services/sidebar-service';
+import { ResponsiveService } from '../../core/services/responsive-service';
 
 @Component({
   selector: 'app-products-grid',
@@ -26,8 +28,14 @@ import { ToggleWishlistButton } from '../../shared/ui/toggle-wishlist-button/tog
 })
 export class ProductsGrid {
   protected store = inject(EcommerceStore);
+  sidebarService = inject(SidebarService);
+  responsiveService = inject(ResponsiveService)
   protected readonly category = input<string>('all');
   protected readonly search = input<string>('');
+  isOpened = computed(() => this.sidebarService.opened());
+
+  mode = computed(() => this.responsiveService.largeWidth() ? 'push' : 'over')
+
 
   protected readonly categories = signal<string[]>([
     'all',

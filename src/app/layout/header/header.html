@@ -1,13 +1,17 @@
 <mat-toolbar class="w-full elevated py-2">
-  <div class="max-w-[1200px] mx-auto w-full flex items-center gap-4">
-    <div class="flex gap-4 items-center">
-      <button matIconButton>
+  <div class="max-w-[1200px] mx-auto w-full flex items-center gap-1 lg:gap-4">
+    <div class="flex gap-1 items-center">
+      <button matIconButton (click)="sidebarService.toggle()" aria-label="Toggle menu">
         <mat-icon>menu</mat-icon>
       </button>
-      <span routerLink="./">Store NG-20</span>
+      <span class="flex items-center gap-1" routerLink="./">
+        <mat-icon class="!text-blue-800">storefront</mat-icon>
+        <span  class="hidden sm:inline">Store NG-20</span>
+        <span  class="inline sm:hidden text-sm hide-title">NG-20</span>
+      </span>
     </div>
     <app-search-bar class="flex-1" />
 
-    <app-header-actions class="ml-auto"/>
+    <app-header-actions class="ml-auto" />
   </div>
 </mat-toolbar>
